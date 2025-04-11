@@ -631,7 +631,7 @@ export default function Home() {
                         size="lg"
                         className="w-full rounded-full bg-gray-100 text-gray-800 hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600"
                       >
-                        <Link href="https://www.instagram.com/irmaoscell" target="_blank">
+                        <Link href="https://www.instagram.com/irmaoscell_import" target="_blank">
                           <Instagram className="mr-2 h-5 w-5" /> Seguir no Instagram
                         </Link>
                       </Button>
