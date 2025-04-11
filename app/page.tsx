@@ -661,7 +661,7 @@ export default function Home() {
               </p>
               <div className="flex gap-4">
                 <Link
-                  href="https://www.instagram.com/irmaoscell"
+                  href="https://www.instagram.com/irmaoscell_import"
                   target="_blank"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
