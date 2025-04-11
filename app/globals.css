@@ -1,0 +1,262 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 28 100% 50%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 100% 20%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 28 100% 50%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 47.4% 11.2%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 47.4% 11.2%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 47.4% 11.2%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 28 100% 50%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 210 100% 20%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 28 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Story Viewer Styles */
+.story-circle {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  padding: 3px;
+  background: linear-gradient(45deg, #ff8c00, #00405b);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 640px) {
+  .story-circle {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+.story-circle:hover {
+  transform: scale(1.05);
+}
+
+.story-circle:active {
+  transform: scale(0.95);
+}
+
+.story-circle-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.story-viewer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.story-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  display: flex;
+  padding: 10px;
+  gap: 5px;
+}
+
+.story-progress-bar {
+  height: 3px;
+  background-color: rgba(255, 255, 255, 0.3);
+  flex-grow: 1;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.story-progress-bar-fill {
+  height: 100%;
+  background-color: white;
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+.story-content {
+  max-width: 100%;
+  max-height: 90vh;
+  position: relative;
+}
+
+.story-image {
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+}
+
+.story-controls {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.story-prev,
+.story-next {
+  flex: 1;
+  height: 100%;
+  cursor: pointer;
+}
+
+.story-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: white;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.story-title {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: white;
+  font-weight: bold;
+  z-index: 1001;
+}
+
+/* Hide scrollbar but allow scrolling */
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+/* Service box hover effect */
+.service-box {
+  transition: transform 0.3s ease;
+}
+
+.service-box:hover {
+  transform: translateY(-5px);
+}
+
+/* Category card hover effect */
+.category-card {
+  transition: transform 0.3s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Improved touch targets for mobile */
+@media (max-width: 640px) {
+  button,
+  a {
+    min-height: 44px;
+  }
+
+  .story-circle {
+    touch-action: manipulation;
+  }
+}
+
+/* Active states for better mobile feedback */
+button:active,
+a:active {
+  opacity: 0.8;
+}
+
+/* Garantir contraste adequado para botões outline */
+.btn-outline-contrast {
+  border: 2px solid #00405b !important;
+  color: #00405b !important;
+}
+
+.dark .btn-outline-contrast {
+  border: 2px solid #ff8c00 !important;
+  color: #ff8c00 !important;
+}
+
+/* Melhorar visibilidade de botões em fundos claros */
+button[class*="variant-outline"]:not([class*="text-white"]) {
+  border-color: #00405b;
+  color: #00405b;
+}
+
+.dark button[class*="variant-outline"]:not([class*="border-white"]) {
+  border-color: #ff8c00;
+  color: #ff8c00;
+}
